@@ -1,4 +1,5 @@
 export PATH="./docker/bin:../docker/bin:../../docker/bin:$PATH"
+export PROJECT_ROOT="$PWD"
 
 alias _build="docker-compose build --force-rm --pull"
 alias _up="docker-compose up --detach --force-recreate --remove-orphans"
@@ -6,7 +7,6 @@ alias _stop="docker-compose stop"
 alias _run="docker-compose run --rm"
 alias _ps="docker-compose ps"
 alias no-start="docker-compose up --no-start --force-recreate --remove-orphans"
-alias mongo="mongo --host mongo --port 27017"
 
 alias node="docker-compose run --rm node"
 alias npm="docker-compose run --rm npm"
