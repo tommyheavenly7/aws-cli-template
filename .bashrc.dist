@@ -1,5 +1,25 @@
+export PATH="./docker/bin:../docker/bin:../../docker/bin:$PATH"
+
+alias _build="docker-compose build --force-rm --pull"
+alias _up="docker-compose up --detach --force-recreate --remove-orphans"
+alias _stop="docker-compose stop"
+alias _run="docker-compose run --rm"
+alias _ps="docker-compose ps"
+alias no-start="docker-compose up --no-start --force-recreate --remove-orphans"
+alias mongo="mongo --host mongo --port 27017"
+
+alias node="docker-compose run --rm node"
+alias npm="docker-compose run --rm npm"
+alias npx="docker-compose run --rm npx"
+alias yarn="docker-compose run --rm yarn"
+alias gulp="docker-compose run --rm gulp"
+alias webpack="docker-compose run --rm webpack"
+alias webpack-cli="docker-compose run --rm webpack-cli"
+alias eslint="docker-compose run --rm eslint"
+alias tsc="docker-compose run --rm tsc"
+alias hadolint="docker-compose run --rm hadolint"
+alias aws="docker-compose run --rm aws"
+
 export AWS_KEY=
 export AWS_SECRET=
 export AWS_REGION=
-
-alias aws="docker-compose run --rm aws"
