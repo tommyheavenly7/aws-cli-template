@@ -1,17 +1,5 @@
 version: '3.7'
 services:
-  nginx:
-    container_name: "nginx-node12"
-    build:
-      context: docker/nginx
-      dockerfile: Dockerfile
-    ports:
-      - "443:443"
-      - "80:80"
-    volumes:
-      - ./project:/var/project
-      - ./docker/.volumes/log:/var/log
-
   app:
     container_name: "app-node12"
     build:
@@ -20,95 +8,6 @@ services:
     volumes:
       - ./:/var/project
     working_dir: /var/project
-    entrypoint: [ "/usr/local/bin/create-nuxt-app" ]
-
-  create-nuxt-app:
-    container_name: "create-nuxt-app-node12"
-    build:
-      context: docker/node
-      dockerfile: Dockerfile
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-
-  node:
-    container_name: node12
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-
-  npm:
-    container_name: node12-npm
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: [ "/usr/local/bin/npm" ]
-
-  npx:
-    container_name: node12-npx
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: [ "/usr/local/bin/npx" ]
-
-  yarn:
-    container_name: node12-yarn
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: [ "/usr/local/bin/yarn" ]
-
-  ncu:
-    container_name: node12-ncu
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: [ "/usr/local/bin/ncu" ]
-
-  gulp:
-    container_name: node12-gulp
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: ['/usr/local/bin/gulp', '-f', './gulp.js']
-
-  webpack:
-    container_name: node12-webpack
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: ['/usr/local/bin/webpack']
-
-  webpack-cli:
-    container_name: node12-webpack-cli
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: ['/usr/local/bin/webpack-cli']
-
-  eslint:
-    container_name: node12-eslint
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: ['/usr/local/bin/eslint']
-
-  tsc:
-    container_name: node12-tsc
-    image: tommynovember7/docker-node:node12
-    volumes:
-      - ./:/var/project
-    working_dir: /var/project
-    entrypoint: ['/usr/local/bin/tsc']
 
   hadolint:
     container_name: hadolint
@@ -122,9 +21,9 @@ services:
     container_name: aws-cli
     image: tommynovember7/aws-cli:latest
     environment:
-      - AWS_ACCESS_KEY_ID=$AWS_KEY
-      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET
-      - AWS_DEFAULT_REGION=$AWS_REGION
+      - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
+      - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
+      - AWS_DEFAULT_REGION=$AWS_DEFAULT_REGION
     volumes:
       - ./:/var/project
     working_dir: /var/project

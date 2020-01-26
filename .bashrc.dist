@@ -1,6 +1,10 @@
 export PATH="./docker/bin:../docker/bin:../../docker/bin:$PATH"
 export PROJECT_ROOT="$PWD"
 
+_exec() {
+  [[ -z "$2" ]] && docker exec -it "$1" bash \
+  || docker exec -it "$1" "$2"
+}
 alias _build="docker-compose build --force-rm --pull"
 alias _up="docker-compose up --detach --force-recreate --remove-orphans"
 alias _stop="docker-compose stop"
@@ -20,6 +24,6 @@ alias tsc="docker-compose run --rm tsc"
 alias hadolint="docker-compose run --rm hadolint"
 alias aws="docker-compose run --rm aws"
 
-export AWS_KEY=
-export AWS_SECRET=
-export AWS_REGION=
+export AWS_ACCESS_KEY_ID=
+export AWS_SECRET_ACCESS_KEY=
+export AWS_DEFAULT_REGION=
