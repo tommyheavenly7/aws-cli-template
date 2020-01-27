@@ -1,0 +1,9 @@
+To: tomo@tn7.tokyo
+From: admin@tommynovember7.com
+Subject: Simple Test Message
+
+Hi, I'm tomo.
+This is a test mail.
+
+Thank you,
+admin
